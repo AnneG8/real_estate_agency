@@ -11,8 +11,8 @@ def fill_new_building(apps, schema_editor):
             town=flat.town,
             address=flat.address,
             owner=flat.owner,
-            defaults={'new_building': new_building
-        })
+            defaults={'new_building': new_building}
+        )
 
 
 
