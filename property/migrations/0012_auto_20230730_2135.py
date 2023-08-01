@@ -8,11 +8,11 @@ def fill_owner_model(apps, schema_editor):
     Owner = apps.get_model('property', 'Owner')
     flats = Flat.objects.all()
     for flat in flats.iterator():
-        owner = Owner.objects.get_or_create(
+        owner, created = Owner.objects.get_or_create(
             name=flat.owner,
             pure_phone=flat.owner_pure_phone,
             defaults = {'phonenumber': flat.owners_phonenumber}
-        )[0]
+        )
         owner.flats.add(flat)
 
 
